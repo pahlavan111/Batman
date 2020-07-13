@@ -1,26 +1,15 @@
 package com.bp.batman.home;
 
-import android.util.Log;
-import android.widget.Toast;
-
-import com.bp.batman.base.BasePresenter;
 import com.bp.batman.data.Movie;
 import com.bp.batman.data.MovieDataSource;
 import com.bp.batman.data.ResponseMpdel;
-
 import java.util.List;
-
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-//import io.reactivex.SingleObserver;
-//import io.reactivex.android.schedulers.AndroidSchedulers;
-//import io.reactivex.disposables.CompositeDisposable;
-//import io.reactivex.disposables.Disposable;
-//import io.reactivex.schedulers.Schedulers;
 
 public class HomePresenter implements HomeContract.Presenter {
 
@@ -51,16 +40,8 @@ public class HomePresenter implements HomeContract.Presenter {
                     @Override
                     public void onSuccess(ResponseMpdel responseMpdel) {
 
-                        ResponseMpdel responseMpdel1 = responseMpdel;
-                        Toast.makeText(view.getViewContext(), responseMpdel1.getTotalResults() + "", Toast.LENGTH_SHORT).show();
-
-                        List<Movie> movieList = responseMpdel1.getSearch();
+                        List<Movie> movieList = responseMpdel.getSearch();
                         view.showMovies(movieList);
-//                        for (Movie m :
-//                                movieList) {
-//
-//                            Log.d("beh",m.getTitle()+"  Posster:"+m.getPoster()+"\n");
-//                        }
                     }
 
                     @Override
@@ -80,7 +61,6 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void detachView() {
-
 
         this.view = null;
         if (compositeDisposable != null && compositeDisposable.size() > 0) {
