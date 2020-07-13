@@ -10,6 +10,9 @@ import retrofit2.http.Query;
 
 public interface MovieDataSource {
 
-    Single<ResponseMpdel> getMy(String movie_title, String api_key);
+    Single<ResponseMpdel> getMyList(String movie_title, String api_key);
+
+    Single<Movie> getMovieDetails(String imdbId, String api_key);
+
 
 }

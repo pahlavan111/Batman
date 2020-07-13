@@ -11,6 +11,9 @@ import retrofit2.http.Query;
 public interface ApiService {
 
     @GET("/")
-    Single<ResponseMpdel> getMy(@Query("s")String movie_title, @Query("apikey")String api_key);
+    Single<ResponseMpdel> getMyList(@Query("s")String movie_title, @Query("apikey")String api_key);
+
+    @GET("/")
+    Single<Movie> getMovieDetails(@Query("i")String imdbId, @Query("apikey")String api_key);
 
 }

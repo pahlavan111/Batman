@@ -1,7 +1,5 @@
 package com.bp.batman.data;
 
-import java.util.List;
-
 import io.reactivex.Single;
 
 public class MovieRepository implements MovieDataSource {
@@ -14,7 +12,12 @@ public class MovieRepository implements MovieDataSource {
 
 
     @Override
-    public Single<ResponseMpdel> getMy(String movie_title, String api_key) {
-        return serverDataSource.getMy(movie_title,api_key);
+    public Single<ResponseMpdel> getMyList(String movie_title, String api_key) {
+        return serverDataSource.getMyList(movie_title,api_key);
+    }
+
+    @Override
+    public Single<Movie> getMovieDetails(String imdbId, String api_key) {
+        return serverDataSource.getMovieDetails(imdbId,api_key);
     }
 }

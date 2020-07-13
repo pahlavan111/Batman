@@ -1,7 +1,5 @@
 package com.bp.batman.data;
 
-import java.util.List;
-
 import io.reactivex.Single;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -24,7 +22,12 @@ public class ServerDataSource implements MovieDataSource {
 
 
     @Override
-    public Single<ResponseMpdel> getMy(String movie_title, String api_key) {
-        return apiService.getMy(movie_title,api_key);
+    public Single<ResponseMpdel> getMyList(String movie_title, String api_key) {
+        return apiService.getMyList(movie_title,api_key);
+    }
+
+    @Override
+    public Single<Movie> getMovieDetails(String imdbId, String api_key) {
+        return apiService.getMovieDetails(imdbId,api_key);
     }
 }
