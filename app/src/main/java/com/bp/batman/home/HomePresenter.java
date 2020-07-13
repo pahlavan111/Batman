@@ -58,7 +58,7 @@ public class HomePresenter implements HomeContract.Presenter {
                         for (Movie m :
                                 movieList) {
 
-                            Log.d("beh",m.getTitle()+"\n");
+                            Log.d("beh",m.getTitle()+"  Posster:"+m.getPoster()+"\n");
                         }
                     }
 
