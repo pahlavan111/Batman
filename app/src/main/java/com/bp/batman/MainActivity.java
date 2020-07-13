@@ -82,4 +82,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+
+        FragmentManager manager = getSupportFragmentManager();
+        if (manager.getBackStackEntryCount() == 1) {
+
+            manager.popBackStack();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.fl_container, new HomeFragment());
+            transaction.commit();
+
+        } else {
+            super.onBackPressed();
+        }
+    }
 }

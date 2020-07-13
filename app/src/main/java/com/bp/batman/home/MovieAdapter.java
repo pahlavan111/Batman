@@ -1,6 +1,7 @@
 package com.bp.batman.home;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bp.batman.R;
 import com.bp.batman.data.Movie;
+import com.bp.batman.details.DetailsFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -50,7 +54,19 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, movie.getImdbID()+"", Toast.LENGTH_SHORT).show();
+
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                Bundle bundle= new Bundle();
+                bundle.putString("imdbId",movie.getImdbID());
+                DetailsFragment detailsFragment=new DetailsFragment();
+                detailsFragment.setArguments(bundle);
+
+
+                String backStateName =activity.getSupportFragmentManager().getFragments().getClass().getName();
+
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, detailsFragment).addToBackStack(backStateName).commit();
+
+
             }
         });
     }
