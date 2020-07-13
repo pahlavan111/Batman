@@ -8,12 +8,13 @@ public class MovieRepository implements MovieDataSource {
 
     ServerDataSource serverDataSource;
 
-    public MovieRepository(ServerDataSource serverDataSource) {
-        this.serverDataSource = serverDataSource;
+    public MovieRepository() {
+        serverDataSource=new ServerDataSource();
     }
 
+
     @Override
-    public Single<List<Movie>> getMovieList(String apiKey, String search) {
-        return serverDataSource.getMovieList(apiKey,search);
+    public Single<ResponseMpdel> getMy(String movie_title, String api_key) {
+        return serverDataSource.getMy(movie_title,api_key);
     }
 }

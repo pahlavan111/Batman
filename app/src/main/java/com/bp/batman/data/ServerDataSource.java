@@ -22,8 +22,9 @@ public class ServerDataSource implements MovieDataSource {
         apiService=retrofit.create(ApiService.class);
     }
 
+
     @Override
-    public Single<List<Movie>> getMovieList(String apiKey, String search) {
-        return apiService.getMovieList(apiKey,search);
+    public Single<ResponseMpdel> getMy(String movie_title, String api_key) {
+        return apiService.getMy(movie_title,api_key);
     }
 }
