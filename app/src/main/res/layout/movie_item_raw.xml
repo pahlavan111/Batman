@@ -12,14 +12,14 @@
 
         <!-- TODO: Missing ripple effect -->
         <ImageView
-            android:id="@+id/iv_thumbnail"
+            android:id="@+id/img_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:src="@drawable/bat"
             android:background="@color/colorAccent" />
 
         <TextView
-            android:id="@+id/tv_movie_title"
+            android:id="@+id/txt_movie_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -29,7 +29,7 @@
             tools:text="Matrix" />
 
         <TextView
-            android:id="@+id/tv_year"
+            android:id="@+id/txt_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
@@ -38,7 +38,7 @@
             tools:text="2017" />
 
         <TextView
-            android:id="@+id/tv_type"
+            android:id="@+id/txt_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"

@@ -55,11 +55,12 @@ public class HomePresenter implements HomeContract.Presenter {
                         Toast.makeText(view.getViewContext(), responseMpdel1.getTotalResults() + "", Toast.LENGTH_SHORT).show();
 
                         List<Movie> movieList = responseMpdel1.getSearch();
-                        for (Movie m :
-                                movieList) {
-
-                            Log.d("beh",m.getTitle()+"  Posster:"+m.getPoster()+"\n");
-                        }
+                        view.showMovies(movieList);
+//                        for (Movie m :
+//                                movieList) {
+//
+//                            Log.d("beh",m.getTitle()+"  Posster:"+m.getPoster()+"\n");
+//                        }
                     }
 
                     @Override
