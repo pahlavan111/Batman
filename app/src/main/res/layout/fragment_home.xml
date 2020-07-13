@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryVeryLight"
+    android:orientation="vertical"
     tools:context=".home.HomeFragment">
 
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/rv_movie"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="@dimen/bottom_navigation_elevation"
+        tools:targetApi="lollipop">
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/ll_logo_back"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/logo_back"
+            android:gravity="center"
+            tools:ignore="VectorDrawableCompat">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:srcCompat="@drawable/ic_bat" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_size_medium"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/ll_logo_back"
+            android:layout_toRightOf="@id/ll_logo_back"
+            android:text="@string/batman_movies"
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="@dimen/margin_padding_size_medium" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_movie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
