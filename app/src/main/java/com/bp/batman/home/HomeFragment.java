@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.bp.batman.R;
 import com.bp.batman.base.BaseFragment;
@@ -38,7 +39,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @Override
     public void setUpViews() {
         rv_movie = rootView.findViewById(R.id.rv_movie);
-        rv_movie.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        rv_movie.setHasFixedSize(true);
+        rv_movie.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
     }
 
