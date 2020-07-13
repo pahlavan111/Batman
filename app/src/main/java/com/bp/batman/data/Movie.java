@@ -2,10 +2,10 @@ package com.bp.batman.data;
 
 public class Movie {
 
-    public Movie(String title, String year, String imdbId, String type, String poster) {
+    public Movie(String title, String year, String imdbID, String type, String poster) {
         Title = title;
         Year = year;
-        this.imdbId = imdbId;
+        this.imdbID = imdbID;
         Type = type;
         Poster = poster;
     }
@@ -13,7 +13,7 @@ public class Movie {
     private int id;
     private String Title;
     private String Year;
-    private String imdbId;
+    private String imdbID;
     private String Type;
     private String Poster;
 
@@ -41,12 +41,12 @@ public class Movie {
         Year = year;
     }
 
-    public String getImdbId() {
-        return imdbId;
+    public String getImdbID() {
+        return imdbID;
     }
 
-    public void setImdbId(String imdbId) {
-        this.imdbId = imdbId;
+    public void setImdbID(String imdbID) {
+        this.imdbID = imdbID;
     }
 
     public String getType() {

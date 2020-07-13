@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,6 +47,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
         holder.itemView.startAnimation(AnimationUtils.loadAnimation(context,R.anim.fade_scale_animation));
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, movie.getImdbID()+"", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
