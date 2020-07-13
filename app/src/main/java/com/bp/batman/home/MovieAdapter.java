@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,6 +43,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         holder.txt_title.setText(movie.getTitle());
         holder.txt_year.setText(movie.getYear());
         holder.txt_type.setText(movie.getType());
+
+        holder.itemView.startAnimation(AnimationUtils.loadAnimation(context,R.anim.fade_scale_animation));
 
     }
 
