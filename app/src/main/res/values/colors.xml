@@ -7,10 +7,8 @@
 
     <color name="colorYellow">#fdff00</color>
     <color name="colorPrimaryLight">#505c7c</color>
-    <color name="colorPrimaryVeryLight">#C8505C7C</color>
+    <color name="colorPrimaryVeryLight">#9EC3CFEE</color>
     <color name="colorWhite">#FFFFFF</color>
-
-
 
     <color name="alabaster">#FAFAFA</color>
     <color name="black">#000000</color>
