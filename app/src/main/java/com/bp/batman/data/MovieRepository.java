@@ -1,5 +1,8 @@
 package com.bp.batman.data;
 
+import java.util.List;
+
+import io.reactivex.Completable;
 import io.reactivex.Single;
 
 public class MovieRepository implements MovieDataSource {
@@ -19,5 +22,10 @@ public class MovieRepository implements MovieDataSource {
     @Override
     public Single<Movie> getMovieDetails(String imdbId, String api_key) {
         return serverDataSource.getMovieDetails(imdbId,api_key);
+    }
+
+    @Override
+    public Completable saveMovieList(List<Movie> movieList) {
+        return null;
     }
 }
