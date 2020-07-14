@@ -42,7 +42,7 @@ public class DetailsFragment extends BaseFragment implements DetailsContract.Vie
         assert bundle != null;
         String imdbId= bundle.getString("imdbId");
 
-        presenter=new DetailsPresenter(new MovieRepository(),imdbId);
+        presenter=new DetailsPresenter(new MovieRepository(getViewContext()),imdbId);
 
     }
 

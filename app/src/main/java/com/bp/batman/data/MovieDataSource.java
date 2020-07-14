@@ -11,7 +11,7 @@ public interface MovieDataSource {
 
     Single<Movie> getMovieDetails(String imdbId, String api_key);
 
-    Completable saveMovieList(List<Movie> movieList);
+    Single<Long> saveMovie(Movie movie);
 
 
 }

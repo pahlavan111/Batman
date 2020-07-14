@@ -1,5 +1,7 @@
 package com.bp.batman.data;
 
+import android.content.Context;
+
 import java.util.List;
 
 import io.reactivex.Completable;
@@ -8,10 +10,14 @@ import io.reactivex.Single;
 public class MovieRepository implements MovieDataSource {
 
     ServerDataSource serverDataSource;
+    LocalDataSource localDataSource;
 
-    public MovieRepository() {
+    public MovieRepository(Context context) {
+        localDataSource= new LocalDataSource(context);
         serverDataSource=new ServerDataSource();
     }
+
+
 
 
     @Override
@@ -25,7 +31,8 @@ public class MovieRepository implements MovieDataSource {
     }
 
     @Override
-    public Completable saveMovieList(List<Movie> movieList) {
-        return null;
+    public Single<Long> saveMovie(Movie movie) {
+        return localDataSource.saveMovie(movie);
     }
+
 }

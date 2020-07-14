@@ -28,7 +28,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new HomePresenter(new MovieRepository());
+        presenter = new HomePresenter(new MovieRepository(getViewContext()));
     }
 
     @Override
@@ -60,7 +60,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @Override
     public void showError(String error) {
 
-        
+        Toast.makeText(getViewContext(), error+"", Toast.LENGTH_SHORT).show();
     }
 
 

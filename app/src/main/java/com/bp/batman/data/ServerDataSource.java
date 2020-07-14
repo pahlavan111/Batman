@@ -35,7 +35,8 @@ public class ServerDataSource implements MovieDataSource {
     }
 
     @Override
-    public Completable saveMovieList(List<Movie> movieList) {
+    public Single<Long> saveMovie(Movie movie) {
         return null;
     }
+
 }

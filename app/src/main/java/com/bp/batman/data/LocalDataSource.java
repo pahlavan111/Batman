@@ -13,10 +13,12 @@ public class LocalDataSource implements MovieDataSource {
 
     private String DB_NAME = "db_name";
     private MovieDatabase movieDatabase;
+    private Context context;
 
     public LocalDataSource(Context context) {
 
-        movieDatabase = Room.databaseBuilder(context,MovieDatabase.class,DB_NAME).build();
+        this.context=context;
+
     }
 
     @Override
@@ -30,11 +32,13 @@ public class LocalDataSource implements MovieDataSource {
     }
 
     @Override
-    public Completable saveMovieList(List<Movie> movieList) {
+    public Single<Long> saveMovie(Movie movie) {
+        movieDatabase = Room.databaseBuilder(context,MovieDatabase.class,DB_NAME).build();
 
-        for (Movie m:movieList) {
-            movieDatabase.movieDao().insertMovie(m);
-        }
-        return null;
+            Single<Long> res=movieDatabase.movieDao().insertMovie(movie);
+
+        return res;
     }
+
+
 }

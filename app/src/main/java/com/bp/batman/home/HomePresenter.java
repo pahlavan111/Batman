@@ -4,6 +4,8 @@ import com.bp.batman.data.Movie;
 import com.bp.batman.data.MovieDataSource;
 import com.bp.batman.data.ResponseModel;
 import java.util.List;
+
+import io.reactivex.CompletableObserver;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -42,6 +44,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
                         List<Movie> movieList = responseModel.getSearch();
                         view.showMovies(movieList);
+                        saveMovieList(movieList);
                     }
 
                     @Override
@@ -51,6 +54,35 @@ public class HomePresenter implements HomeContract.Presenter {
                 });
 
     }
+
+    @Override
+    public void saveMovieList(List<Movie> movieList) {
+
+
+        for (Movie m:movieList
+             ) {
+            movieDataSource.saveMovie(m).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new SingleObserver<Long>() {
+                        @Override
+                        public void onSubscribe(Disposable d) {
+
+                        }
+
+                        @Override
+                        public void onSuccess(Long aLong) {
+                         //   view.showError(aLong.toString());
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+
+                        }
+                    });
+        }
+
+    }
+
 
     @Override
     public void attachView(HomeContract.View view) {

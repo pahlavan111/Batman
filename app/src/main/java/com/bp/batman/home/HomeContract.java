@@ -15,6 +15,7 @@ public interface HomeContract {
 
     interface Presenter extends BasePresenter<View>{
         void getMoviesList();
+        void saveMovieList(List<Movie> movieList);
     }
 
 }
