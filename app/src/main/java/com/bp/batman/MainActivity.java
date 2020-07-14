@@ -18,11 +18,15 @@ import com.bp.batman.home.HomeFragment;
 public class MainActivity extends AppCompatActivity {
     private static int PERMISSION_REQUEST = 1001;
 
+    FragmentManager manager;
+    FragmentTransaction transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        manager = getSupportFragmentManager();
+        transaction = manager.beginTransaction();
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -35,20 +39,23 @@ public class MainActivity extends AppCompatActivity {
             } else {
 
                 // createFilePath();
+                transaction.replace(R.id.fl_container, new HomeFragment());
+                transaction.commit();
             }
 
 
         } else {
 
             //  createFilePath();
+            transaction.replace(R.id.fl_container, new HomeFragment());
+            transaction.commit();
 
         }
 
 
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.fl_container, new HomeFragment());
-        transaction.commit();
+
+
+
     }
 
 
@@ -76,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                 //   createFilePath();
+                transaction.replace(R.id.fl_container, new HomeFragment());
+                transaction.commit();
 
 
             }
@@ -89,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
         if (manager.getBackStackEntryCount() == 1) {
 
             manager.popBackStack();
-            FragmentTransaction transaction = manager.beginTransaction();
             transaction.replace(R.id.fl_container, new HomeFragment());
             transaction.commit();
 
