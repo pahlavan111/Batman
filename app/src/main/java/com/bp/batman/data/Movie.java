@@ -9,18 +9,14 @@ import java.util.List;
 @Entity
 public class Movie {
 
-    public Movie(String title, String year, String imdbID, String type, String poster) {
-        Title = title;
-        Year = year;
-        this.imdbID = imdbID;
-        Type = type;
-        Poster = poster;
+    public Movie() {
+
     }
 
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name = "title")
+    @ColumnInfo(name = "Title")
     private String Title;
 
     @ColumnInfo(name = "Year")
@@ -68,7 +64,7 @@ public class Movie {
     @ColumnInfo(name = "Awards")
     private String Awards;
 
-    private List<Rating> Ratings;
+   // private List<Rating> Ratings;
 
     @ColumnInfo(name = "Metascore")
     private String Metascore;
@@ -229,14 +225,14 @@ public class Movie {
     public void setAwards(String awards) {
         Awards = awards;
     }
-
-    public List<Rating> getRatings() {
-        return Ratings;
-    }
-
-    public void setRatings(List<Rating> ratings) {
-        Ratings = ratings;
-    }
+//
+//    public List<Rating> getRatings() {
+//        return Ratings;
+//    }
+//
+//    public void setRatings(List<Rating> ratings) {
+//        Ratings = ratings;
+//    }
 
     public String getMetascore() {
         return Metascore;
