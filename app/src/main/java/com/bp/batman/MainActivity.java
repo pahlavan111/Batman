@@ -6,13 +6,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
-
 import com.bp.batman.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     FragmentManager manager;
     FragmentTransaction transaction;
+    HomeFragment homeFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
+
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
             } else {
 
                 // createFilePath();
-                transaction.replace(R.id.fl_container, new HomeFragment());
+                homeFragment=new HomeFragment();
+                transaction.replace(R.id.fl_container, homeFragment);
                 transaction.commit();
             }
 
@@ -47,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
 
             //  createFilePath();
-            transaction.replace(R.id.fl_container, new HomeFragment());
+            homeFragment=new HomeFragment();
+            transaction.replace(R.id.fl_container, homeFragment);
             transaction.commit();
 
         }
@@ -83,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                 //   createFilePath();
-                transaction.replace(R.id.fl_container, new HomeFragment());
+                homeFragment=new HomeFragment();
+                transaction.replace(R.id.fl_container, homeFragment);
                 transaction.commit();
 
 
@@ -94,12 +97,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        FragmentManager manager = getSupportFragmentManager();
         if (manager.getBackStackEntryCount() == 1) {
 
-            manager.popBackStack();
-            transaction.replace(R.id.fl_container, new HomeFragment());
-            transaction.commit();
+           manager.popBackStack();
+
+           FragmentManager manager1= getSupportFragmentManager();
+           FragmentTransaction transaction1 = manager1.beginTransaction();
+           transaction1.replace(R.id.fl_container,new HomeFragment());
+            transaction1.commit();
 
         } else {
             super.onBackPressed();

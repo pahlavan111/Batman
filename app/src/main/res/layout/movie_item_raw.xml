@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textColor="@color/colorPrimaryVeryLight"
+            android:textColor="@color/colorPrimaryLight"
             android:textSize="@dimen/text_size_micro"
             tools:text="2017" />
 
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textColor="@color/colorPrimaryVeryLight"
+            android:textColor="@color/colorPrimaryLight"
             android:textSize="@dimen/text_size_micro"
             tools:text="Movie" />
 
