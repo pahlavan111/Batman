@@ -1,7 +1,12 @@
 package com.bp.batman.data;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.List;
 
+@Entity
 public class Movie {
 
     public Movie(String title, String year, String imdbID, String type, String poster) {
@@ -12,31 +17,81 @@ public class Movie {
         Poster = poster;
     }
 
+    @PrimaryKey(autoGenerate = true)
     private int id;
+
+    @ColumnInfo(name = "title")
     private String Title;
+
+    @ColumnInfo(name = "Year")
     private String Year;
+
+    @ColumnInfo(name = "imdbID")
     private String imdbID;
+
+    @ColumnInfo(name = "Type")
     private String Type;
+
+    @ColumnInfo(name = "Poster")
     private String Poster;
+
+    @ColumnInfo(name = "Rated")
     private String Rated;
+
+    @ColumnInfo(name = "Released")
     private String Released;
+
+    @ColumnInfo(name = "Runtime")
     private String Runtime;
+
+    @ColumnInfo(name = "Genre")
     private String Genre;
+
+    @ColumnInfo(name = "Director")
     private String Director;
+
+    @ColumnInfo(name = "Writer")
     private String Writer;
+
+    @ColumnInfo(name = "Actors")
     private String Actors;
+
+    @ColumnInfo(name = "Plot")
     private String Plot;
+
+    @ColumnInfo(name = "Language")
     private String Language;
+
+    @ColumnInfo(name = "Country")
     private String Country;
+
+    @ColumnInfo(name = "Awards")
     private String Awards;
+
     private List<Rating> Ratings;
+
+    @ColumnInfo(name = "Metascore")
     private String Metascore;
+
+    @ColumnInfo(name = "imdbRating")
     private String imdbRating;
+
+    @ColumnInfo(name = "imdbVotes")
     private String imdbVotes;
+
+    @ColumnInfo(name = "DVD")
     private String DVD;
+
+    @ColumnInfo(name = "BoxOffice")
     private String BoxOffice;
+
+    @ColumnInfo(name = "Production")
     private String Production;
+
+    @ColumnInfo(name = "Website")
     private String Website;
+
+    @ColumnInfo(name = "Response")
     private String Response;
 
     public int getId() {
