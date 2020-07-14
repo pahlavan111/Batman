@@ -2,7 +2,7 @@ package com.bp.batman.data;
 
 import java.util.List;
 
-public class ResponseMpdel {
+public class ResponseModel {
 
     List<Movie> Search;
     Integer totalResults;

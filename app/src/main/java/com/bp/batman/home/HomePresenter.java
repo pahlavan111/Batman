@@ -2,7 +2,7 @@ package com.bp.batman.home;
 
 import com.bp.batman.data.Movie;
 import com.bp.batman.data.MovieDataSource;
-import com.bp.batman.data.ResponseMpdel;
+import com.bp.batman.data.ResponseModel;
 import java.util.List;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -29,18 +29,18 @@ public class HomePresenter implements HomeContract.Presenter {
     public void getMoviesList() {
 
 
-        movieDataSource.getMyList(SEARCH_KEY, API_KEY).subscribeOn(Schedulers.io())
+        movieDataSource.getResponseModel(SEARCH_KEY, API_KEY).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<ResponseMpdel>() {
+                .subscribe(new SingleObserver<ResponseModel>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         compositeDisposable.add(d);
                     }
 
                     @Override
-                    public void onSuccess(ResponseMpdel responseMpdel) {
+                    public void onSuccess(ResponseModel responseModel) {
 
-                        List<Movie> movieList = responseMpdel.getSearch();
+                        List<Movie> movieList = responseModel.getSearch();
                         view.showMovies(movieList);
                     }
 

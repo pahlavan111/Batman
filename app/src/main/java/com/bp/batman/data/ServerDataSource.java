@@ -22,8 +22,8 @@ public class ServerDataSource implements MovieDataSource {
 
 
     @Override
-    public Single<ResponseMpdel> getMyList(String movie_title, String api_key) {
-        return apiService.getMyList(movie_title,api_key);
+    public Single<ResponseModel> getResponseModel(String movie_title, String api_key) {
+        return apiService.getResponseModel(movie_title,api_key);
     }
 
     @Override
